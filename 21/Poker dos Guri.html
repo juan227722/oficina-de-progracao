@@ -1,0 +1,37 @@
+<!DOCTYPE html> <!-- Define para o navegador que este é um documento HTML5 moderno -->
+<html lang="pt-BR"> <!-- Define o idioma principal da página como Português do Brasil -->
+<head>
+    <meta charset="UTF-8"> <!-- Configura a codificação de caracteres para aceitar acentos e emojis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante que o jogo se adapte bem a telas de celulares e tablets -->
+    <title>Jogo de 21 (Blackjack)</title> <!-- Texto que aparece na aba do navegador -->
+    <link rel="stylesheet" href="css.css"> <!-- Conecta este arquivo HTML ao arquivo de estilos CSS -->
+</head>
+<body>
+    <div class="game-container"> <!-- Caixa principal que centraliza todo o conteúdo do jogo na tela -->
+        <h1>Jogo de 21</h1> <!-- Título principal do jogo -->
+        
+        <!-- Área do Bot / Dealer -->
+        <div class="area-jogo"> <!-- Container para agrupar as informações do adversário -->
+            <h2>Bot (Dealer) - Placar: <span id="dealer-score">0</span></h2> <!-- Título do Bot. O 'span' com ID permite que o JS altere o placar dinamicamente -->
+            <div id="dealer-cards" class="cards-container"></div> <!-- Espaço vazio onde o JavaScript vai injetar as cartas do Bot -->
+        </div>
+
+        <!-- Área do Jogador -->
+        <div class="area-jogo"> <!-- Container para agrupar as informações do jogador humano -->
+            <h2>Seu Jogo - Placar: <span id="player-score">0</span></h2> <!-- Título do Jogador. O 'span' receberá os pontos calculados pelo JS -->
+            <div id="player-cards" class="cards-container"></div> <!-- Espaço vazio onde o JavaScript vai injetar as suas cartas -->
+        </div>
+
+        <!-- Controles e Mensagens -->
+        <div class="controles"> <!-- Agrupa os botões de ação do jogo -->
+            <button id="btn-hit" onclick="hit()">Pedir Carta</button> <!-- Botão que, ao ser clicado, executa a função 'hit()' no JavaScript -->
+            <button id="btn-stand" onclick="keepStand()">Parar</button> <!-- Botão que, ao ser clicado, executa a função 'keepStand()' para encerrar a vez -->
+            <button id="btn-restart" onclick="restartGame()" class="hidden">Jogar Novamente</button> <!-- Botão de reiniciar, que começa escondido (classe hidden) -->
+        </div>
+
+        <div id="mensagem" class="mensagem"></div> <!-- Espaço onde o JavaScript vai escrever quem ganhou ou quem perdeu -->
+    </div>
+
+    <script src="java.js" defer></script> <!-- Conecta o arquivo JavaScript. O 'defer' garante que o script só rode após o HTML estar todo carregado -->
+</body>
+</html>

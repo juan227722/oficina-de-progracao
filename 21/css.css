@@ -1,0 +1,116 @@
+/* Configurações globais do corpo da página */
+body {
+    font-family: 'Arial', sans-serif; /* Define uma fonte limpa e sem serifa para o jogo */
+    background-color: #1c502c; /* Aplica a cor verde escura clássica de mesas de cassino no fundo */
+    color: white; /* Define a cor padrão de todos os textos como branca */
+    display: flex; /* Ativa o modo Flexbox para alinhar elementos facilmente */
+    justify-content: center; /* Centraliza o container do jogo horizontalmente na tela */
+    align-items: center; /* Centraliza o container do jogo verticalmente na tela */
+    min-height: 100vh; /* Força o fundo a ocupar no mínimo 100% da altura da janela do navegador */
+    margin: 0; /* Remove as margens padrão do navegador para evitar barras de rolagem desnecessárias */
+}
+
+/* Caixa principal do jogo */
+.game-container {
+    background-color: rgba(0, 0, 0, 0.4); /* Cria um fundo preto semi-transparente (40% de opacidade) */
+    padding: 30px; /* Adiciona um espaçamento interno para afastar o texto das bordas */
+    border-radius: 15px; /* Arredonda os cantos da caixa principal */
+    text-align: center; /* Alinha todos os textos e botões internos no centro */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Adiciona uma sombra preta suave abaixo da caixa */
+    width: 90%; /* Define que a caixa ocupa 90% da largura em telas pequenas */
+    max-width: 600px; /* Impede que a caixa fique grande demais em monitores muito largos */
+}
+
+/* Estilo do título principal */
+h1 {
+    margin-top: 0; /* Remove o espaço superior padrão do título */
+    color: #ffd700; /* Pinta o título com uma cor dourada */
+}
+
+/* Blocos que separam o jogo do Bot e do Jogador */
+.area-jogo {
+    margin: 20px 0; /* Adiciona 20px de espaço acima e abaixo do bloco */
+    padding: 15px; /* Adiciona um espaço interno dentro do bloco */
+    background: rgba(255, 255, 255, 0.1); /* Cria um fundo branco bem sutil e transparente (10%) */
+    border-radius: 10px; /* Arredonda os cantos dos blocos de jogo */
+}
+
+/* Container onde as cartas de cada jogador ficam alinhadas */
+.cards-container {
+    display: flex; /* Alinha as cartas uma ao lado da outra */
+    justify-content: center; /* Centraliza o grupo de cartas horizontalmente */
+    gap: 10px; /* Cria um espaço fixo de 10px entre uma carta e outra */
+    min-height: 110px; /* Garante uma altura mínima para o bloco não encolher quando estiver sem cartas */
+    margin-top: 10px; /* Afasta as cartas do título do placar */
+    flex-wrap: wrap; /* Se houver muitas cartas, elas quebram para a linha de baixo automaticamente */
+}
+
+/* Estilo visual de cada carta individual */
+.card {
+    background-color: white; /* O fundo da carta física é sempre branco */
+    color: black; /* O texto dos naipes (Paus/Espadas) por padrão é preto */
+    width: 70px; /* Largura padrão da carta */
+    height: 100px; /* Altura padrão da carta */
+    border-radius: 8px; /* Arredonda levemente os cantos da carta */
+    display: flex; /* Ativa o flexbox interno da carta */
+    flex-direction: column; /* Alinha os textos internos da carta verticalmente (em coluna) */
+    justify-content: space-between; /* Empurra o valor para o topo e o naipe para a base da carta */
+    padding: 8px; /* Afasta o texto interno das bordas da carta */
+    font-weight: bold; /* Deixa os números e naipes em negrito */
+    font-size: 18px; /* Define o tamanho do texto da carta */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* Adiciona uma sombra realista atrás da carta */
+    box-sizing: border-box; /* Garante que o padding não altere o tamanho final de 70x100px da carta */
+}
+
+/* Classe aplicada apenas para cartas de Copas (♥) e Ouro (♦) */
+.card.red {
+    color: #ff0000; /* Muda a cor do texto e naipe para vermelho */
+}
+
+/* Classe aplicada na carta oculta do Bot (virada para baixo) */
+.card.hidden-card {
+    background: linear-gradient(135deg, #7f1d1d, #450a0a); /* Cria um fundo degradê vermelho escuro simula o verso */
+    color: transparent; /* Esconde o texto do número/naipe deixando-o invisível */
+    border: 2px solid white; /* Cria uma borda branca para destacar o verso da carta */
+}
+
+/* Estilo geral dos botões de ação */
+button {
+    background-color: #ffd700; /* Botões começam com a cor dourada */
+    color: black; /* Texto interno do botão em preto para dar contraste */
+    border: none; /* Remove as bordas padrão tridimensionais do navegador */
+    padding: 12px 24px; /* Define o tamanho do botão (vertical x horizontal) */
+    font-size: 16px; /* Tamanho da fonte do botão */
+    font-weight: bold; /* Texto do botão em negrito */
+    cursor: pointer; /* Transforma a seta do mouse na mãozinha de clique */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+    margin: 5px; /* Cria um pequeno espaçamento entre um botão e outro */
+    transition: 0.2s; /* Define que qualquer efeito visual vai durar 0.2 segundos de forma suave */
+}
+
+/* Efeito ao passar o mouse por cima do botão */
+button:hover {
+    background-color: #ffea70; /* Clareia o tom de dourado do botão */
+    transform: scale(1.05); /* Aumenta o tamanho do botão levemente em 5% */
+}
+
+/* Estilo do botão quando ele é desativado pelo JavaScript */
+button:disabled {
+    background-color: #888; /* Muda a cor para um cinza opaco */
+    color: #ccc; /* Muda o texto para um cinza claro */
+    cursor: not-allowed; /* Altera o ícone do mouse para o sinal de "bloqueado" */
+    transform: none; /* Desativa o efeito de crescimento ao passar o mouse */
+}
+
+/* Classe utilitária para esconder elementos da tela */
+.hidden {
+    display: none; /* O elemento simplesmente some e deixa de ocupar espaço */
+}
+
+/* Estilo do texto da mensagem de vitória/derrota */
+.mensagem {
+    font-size: 22px; /* Fonte grande para destacar o resultado */
+    font-weight: bold; /* Texto em negrito */
+    margin-top: 20px; /* Afasta a mensagem dos botões de controle */
+    color: #ffd700; /* Texto na cor dourada */
+}
